@@ -1,0 +1,1 @@
+INSERT INTO `questions` (`id`, `quiz_id`, `question_text`, `choice_a`, `choice_b`, `choice_c`, `choice_d`, `question_time`, `correct_answer`) VALUES (NULL, 'ffffff', 'Türkiyenin başkenti', 'Yozgat', 'Siirt', 'Kırşehir', 'Ankara', '6', '3');

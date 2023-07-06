@@ -1,0 +1,51 @@
+    // Include config file
+    require_once "config.php";
+
+    $quiz_id=      "ffffff";
+    $question_text="";
+    $question_time=10;
+    $choice_a=     "";
+    $choice_b=     "";
+    $choice_c=     "";
+    $choice_d=      "";
+    $correct_answer= 0;
+
+    $question_text_err=$quiz_id_err="";
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+        if((empty(trim($_POST["quiz_id"])))){
+            $quiz_id_err="quiz_id is cannot be empty!'";
+        }
+        
+        if((empty(trim($_POST["question_text"])))){
+            $question_text_err="question text is cannot be empty!";
+        }
+
+        if(empty($question_text_err) && empty($quiz_id_err)){
+
+            $quiz_id=      $_POST["quiz_id"];
+            $question_text=$_POST["question_text"];
+            $question_time=$_POST["question_time"];
+            $choice_a=      $_POST["choice_a"];
+            $choice_b=      $_POST["choice_b"];
+            $choice_c=      $_POST["choice_c"];
+            $choice_d=      $_POST["choice_d"];
+            $correct_answer=      $_POST["correct_answer"];
+
+            $quiz=$db->query("SELECT id FROM quizzes WHERE id={$quiz_id}");
+
+            if($quiz->num_rows>0){
+                $sql="INSERT INTO questions (``,`) WHERE id={}";
+            }else{
+                
+            }
+
+            //$sql="INSERT INTO `questions` (`id`, `quiz_id`, `question_text`, `choice_a`, `choice_b`, `choice_c`, `choice_d`, `question_time`, `correct_answer`) VALUES (NULL,{$quiz_id}, {$question_text}, {$choice_a}, {$choice_b}, {$choice_c}, {$choice_d}, {$question_time}, {$correct_answer})";
+            
+        }
+
+
+
+    
+    }
